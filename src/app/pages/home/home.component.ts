@@ -12,7 +12,6 @@ const textOut = {transform: 'translateY(100%)'};
 // const initSlideUp = {transform: 'translateY(0)'};
 
 @Component({
-  moduleId: module.id.toString(),
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
