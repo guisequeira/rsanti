@@ -1,0 +1,29 @@
+@import 'utils/respond-to';
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+body{
+ @include font-regular(); 
+ background-color: #f2f2f2;
+}
+
+.container{
+  display: flex;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 rem-calc(20);
+  @include for-tablet-portrait(){
+    margin: 0 rem-calc(80);
+    // background-color: blue;
+  }
+}
+
+.section{
+  justify-content: center;
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+}

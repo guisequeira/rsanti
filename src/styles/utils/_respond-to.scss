@@ -1,0 +1,17 @@
+// Variables
+$phone: 600px;
+$tablet: 900px;
+$desktop: 1200px;
+
+@mixin for-phone {
+  @media (max-width: ($phone - 1)) { @content; }
+}
+@mixin for-tablet-portrait {
+  @media (min-width: $phone) { @content; }
+}
+@mixin for-tablet-landscape {
+  @media (min-width: $tablet ) { @content; }
+}
+@mixin for-desktop {
+  @media (min-width: $desktop) { @content; }
+}

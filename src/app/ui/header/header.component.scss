@@ -1,0 +1,74 @@
+@import 
+  '../../../styles/utils/functions',
+  '../../../styles/utils/respond-to';
+
+$headerMarginPhone: rem-calc(20);
+$headerMarginTablet: rem-calc(40);
+$headerMarginDesktop: rem-calc(70);
+
+.header{
+  position: fixed;
+  // background-color: rgba(#fff, .50);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // padding-top: rem-calc(5);
+
+  color: #fff;
+  z-index: 999;
+
+  &__nav{
+    display: inline-flex;
+    flex-direction: column;
+    margin-right: $headerMarginPhone;
+    
+    @include for-tablet-portrait(){
+      margin-top: $headerMarginTablet;
+      margin-right: $headerMarginTablet;
+    }
+
+    @include for-desktop(){
+      margin-top: $headerMarginDesktop;
+      margin-right: $headerMarginDesktop;
+    }
+
+    li{
+      display: inline-flex;
+    }
+    &__brand{
+      display: block;
+      margin-left: $headerMarginPhone;
+      width: rem-calc(20);
+      height: rem-calc(25);
+
+      @include for-tablet-portrait(){
+        margin-top: $headerMarginTablet;
+        margin-left: $headerMarginTablet;
+      }
+
+      @include for-desktop(){
+        margin-top: $headerMarginDesktop;
+        margin-left: $headerMarginDesktop;
+      }
+
+      &--reverse{
+        path, rect, ellipse{
+          fill: #535353;
+        }
+      }
+    }
+
+    &__item{
+      display: inline-flex;
+      font-size: rem-calc(13);
+      text-decoration: none;
+      margin: rem-calc(6);
+      color: #fff;
+
+      &--reverse{
+        color: #535353;
+      }
+    }
+  }
+}

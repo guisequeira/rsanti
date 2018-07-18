@@ -1,0 +1,137 @@
+@import 
+'../../../styles/utils/functions',
+'../../../styles/utils/placeholder',
+'../../../styles/utils/respond-to';
+
+.section{
+  &__bio{
+
+    background-color: #f2f2f2;
+    padding-top: rem-calc(150);
+
+
+    // padding-top: rem-calc(186);
+
+
+    .container{
+      flex-direction: column-reverse;
+
+      @include for-tablet-portrait (){
+        flex-direction: row;
+        justify-content: space-around;
+        margin-bottom: rem-calc(40);
+      }
+    }
+  }
+}
+
+.profile{
+  // width: 100%;
+  display: inline-flex;
+  flex-direction: column;
+  margin: rem-calc(60) rem-calc(40);
+  
+  @include for-tablet-portrait (){
+    width: perc-calc(260, 768);    
+    margin: 0 rem-calc(40) 0 0;
+  }
+  
+  @include for-desktop (){
+    width: perc-calc(260, 960);    
+  }
+  
+  &__infos{
+    background-color: #778966;
+    width: 100%;
+    padding-bottom: rem-calc(50);
+  }
+
+  &__picture{
+    display: inline-flex;
+    width: 100%;
+    overflow: hidden;
+    
+    img{
+      margin-left: 50%;
+      height: 100%;
+      transform: translateX(-50%);
+
+    }
+  }
+}
+
+.infos{
+  &__list{
+    list-style: none;
+    margin: rem-calc(42) 0;
+    &__item{
+      margin: rem-calc(20) 0;
+      a{
+        @include font-regular(); 
+        color: #fff;
+        text-decoration: none;
+        font-size: rem-calc(14);
+      }
+    }
+  }
+
+  &__location{
+    list-style: none;
+    margin: rem-calc(12) 0;
+    font-size: rem-calc(14);
+    
+    &__item{
+      color: #fff;
+      margin: rem-calc(15) 0;
+      
+      &--link{
+        a{
+          color: #fff;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+.description{
+  display: inline-flex;
+  flex-direction: column;
+
+  margin: rem-calc(20);
+
+  @include for-desktop (){
+    max-width: rem-calc(448);
+    margin: rem-calc(70) rem-calc(120) rem-calc(140);
+
+  }
+  
+  // max-width: rem-calc(448);
+  // margin: rem-calc(70) rem-calc(120) rem-calc(140);
+
+  &__title{
+    @extend %config-title;
+    @include font-bold(); 
+    font-size: rem-calc(30);
+    margin: rem-calc(10) 0;
+    margin: rem-calc(10) 0;
+    // line-height: 100%;
+    
+    // font-size: rem-calc(38);
+
+  }
+  &__subtitle{
+    @extend %config-title;
+    @include font-regular(); 
+    font-size: rem-calc(18);
+    margin: rem-calc(10) 0;
+    line-height: rem-calc(29);
+  }
+  &__text{
+    @include font-regular(); 
+    font-size: rem-calc(14);
+    margin: rem-calc(10) 0;
+    line-height: rem-calc(30);
+    // font-size: rem-calc(16);
+  }
+}

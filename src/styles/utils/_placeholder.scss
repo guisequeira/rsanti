@@ -1,0 +1,15 @@
+// row
+@import './functions';
+
+
+// adjust letter-spacing and line-height
+%config-title{
+  letter-spacing: rem-calc(.35);
+  line-height: 125%;
+  margin: 0;
+}
+// adjust letter-spacing and line-height
+%config-text{
+  letter-spacing: rem-calc(.25);
+  line-height: 150%;
+}

@@ -1,0 +1,34 @@
+
+// Color variables
+$c_black:   #000000;
+$c_gray:    #E8E8E8;
+$c_lgray:   #9B9B9B;
+$c_dgray:   #818181;
+$c_yellow:  #ffdd00;
+$c_orange:  #ff6200;
+$c_blue:    #1d6dff;
+$c_red:     #ce0601;
+$c_green:   #2D3A37;
+$c_lgreen:   #09775A;
+$c_dreen:   #65827B;
+
+/// Container's maximum width
+/// Below that is 100%
+$max-width: 960;
+
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+/// @see {mixin} respond-to
+$breakpoints: (
+  'mob': (max-width: 600px),
+  'tab': (max-width: 900px),
+  'desk': (max-width: 1200px),
+) !default;
+
+
+/// Relative or absolute URL where all assets are served from
+/// @type String
+/// @example scss - When using a CDN
+///   $base-url: 'http://cdn.example.com/assets/';
+$base-url: '../_assets/' !default;

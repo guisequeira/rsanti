@@ -1,0 +1,40 @@
+// default
+@import 
+  'utils/functions',
+  'utils/placeholder';
+
+.title{
+  @extend %config-title;
+  @include font-light(); 
+  font-size: rem-calc(34);
+
+  &__big{
+    @extend %config-title;
+    @include font-bold(); 
+    font-size: rem-calc(38);
+  }
+
+  &__subtitle{
+    @extend %config-title;
+    @include font-regular(); 
+    font-size: rem-calc(16);
+  }
+
+  &__small{
+    @extend %config-title;
+    @include font-bold(); 
+    font-size: rem-calc(16);
+  }
+}
+
+.text{
+  @extend %config-text;
+  @include font-regular(); 
+  margin: rem-calc(10);
+
+  &__small{
+    color: #171717;
+    font-size: rem-calc(11);
+    padding-bottom: rem-calc(1);
+  }
+}

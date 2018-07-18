@@ -1,0 +1,114 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+@mixin on-event($self: false) {
+  @if $self {
+    &,
+    &:active,
+    &:focus {
+      outline:0;
+    }
+    &:hover{
+      outline:0;
+      @content;
+    }
+  } @else {
+    &:active,
+    &:focus {
+      outline:0;
+    }
+    &:hover{
+      outline:0;
+      @content;
+    }
+  }
+}
+
+@mixin when-inside($context) {
+  #{$context} & {
+    @content;
+  }
+}
+
+//See readme for icon name pattern or _variables.scss for size variables
+@mixin icon($icon, $size:'p', $pos:center center) {
+  $query: map-get($icon-size, $size);
+  
+  @if not $query {
+    @error 'No value found for `#{$size}`. Please make sure it is defined in `$icon-size` map.';
+  }
+
+  background:image('icons/icon-#{$icon}.svg') no-repeat $pos;
+  background-size:$query
+}
+
+// @mixin respond-to($breakpoint) {
+//   $query: map-get($breakpoints, $breakpoint);
+  
+//   @if not $query {
+//     @error 'No value found for `#{$breakpoint}`. Please make sure it is defined in `$breakpoints` map.';
+//   }
+
+//   @media #{if(type-of($query) == 'string', unquote($query), inspect($query))} {
+//     @content;
+//   }
+// }
+
+@mixin for-phone-only {
+  @media (max-width: 599px) { @content; }
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) and (max-width:899px) { @content; }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px ) and (max-width:1199px) { @content; }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) { @content; }
+}
+
+// =============================================================================
+// String Replace
+// =============================================================================
+
+@function str-replace($string, $search, $replace: "") {
+	$index: str-index($string, $search);
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+
+	@return $string;
+}
+
+// =============================================================================
+// Font Face
+// =============================================================================
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+	$src: null;
+
+	$extmods: (
+		eot: "?",
+		svg: "#" + str-replace($name, " ", "_")
+	);
+
+	$formats: (
+		otf: "opentype",
+		ttf: "truetype"
+	);
+
+	@each $ext in $exts {
+		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+	}
+
+	@font-face {
+		font-family: quote($name);
+		font-style: $style;
+		font-weight: $weight;
+		src: $src;
+	}
+}

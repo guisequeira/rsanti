@@ -1,0 +1,9 @@
+// -----------------------------------------------------------------------------
+// import font-face mixins;
+@import 'utils/mixins';
+
+
+
+@include font-face('cromatica', 'assets/fonts/chromatica-regular-webfont', normal, normal, eot woff2 woff);
+@include font-face('cromatica-bold', 'assets/fonts/chromatica-bold-webfont', bold, normal, eot woff2 woff);
+@include font-face('cromatica-light', 'assets/fonts/chromatica-light-webfont', 100, normal, eot woff2 woff);

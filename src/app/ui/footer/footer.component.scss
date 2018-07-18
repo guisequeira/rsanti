@@ -1,0 +1,42 @@
+@import 
+  '../../../styles/utils/functions',
+  '../../../styles/utils/respond-to';
+
+:host{
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  background-color: #fff;
+  flex-direction: column;
+  align-items: center;
+  padding: rem-calc(125) 0;
+  
+  @include for-desktop (){
+    align-items: flex-end;
+    padding: rem-calc(228) rem-calc(76) rem-calc(125) 0;
+  }
+}
+
+.nav{
+  &__social{
+    display: inline-flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+
+    @include for-desktop (){
+      margin: 0 0 rem-calc(15) 0;
+
+    }
+  }
+
+  &__item{
+    display: inline-flex;
+    list-style: none;
+    margin-left: rem-calc(10);
+
+    a{
+      text-decoration: none;
+    }
+  }
+}

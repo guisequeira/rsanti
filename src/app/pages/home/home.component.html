@@ -1,0 +1,32 @@
+<div class="section section__intro">
+  <div class="container">
+    <h2 class="section__intro__title">
+      <div class="lines" *ngFor="let text of textLines">
+        <span class="worlds" *ngFor="let world of getWorlds(text)">
+          {{world}}
+        </span>
+      </div>
+    </h2>     
+  </div>
+</div>
+<div class="section section__recent-works">  
+  <div class="container">
+    <h3 class="section__recent-works__title">
+      Selected works
+    </h3>
+    <div class="work__line" [ngClass]="{'work__line--reverse': i%2 === 0}" *ngFor="let worksLines of worksLine; let i = index ">
+      <div in-view (inview)="inview($event)" 
+      
+      class="work__item" *ngFor="let work of worksLines ">
+          <div class="work__image">
+              <img [src]="work.image" >
+          </div>
+          <div class="work__description">
+            <h4 class="title__small">{{work.client}}</h4> 
+            <p class="text text__small">{{work.service}}</p>
+          </div>
+        </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass functions.
+// -----------------------------------------------------------------------------
+
+/// Retorna a URL com uma funcão nativa.
+@function assets($base, $type, $path) {
+  @return url($base + $type + $path);
+}
+
+/// carrega imagens.
+@function image($path, $base: $base-url) {
+  @return assets($base, 'images/', $path);
+}
+
+/// carrega fonts.
+@function font($path, $base: $base-url) {
+  @return assets($base, 'fonts/', $path);
+}
+
+/// retorna tamanho em rem.
+$base-font-size: 16;
+
+@function rem-calc( $pixel ){
+  @return ($pixel / $base-font-size) + rem;
+}
+
+@function perc-calc($base, $basic-target, $prefix:'%'){
+  $calc: ($base/$basic-target) * 100;
+  @return $calc#{$prefix};
+}
+
+@mixin font-regular() {  
+  font-family: 'cromatica', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@mixin font-bold() {
+  font-family: 'cromatica-bold', sans-serif;
+  font-weight: bold;
+  font-style: normal;
+}
+
+@mixin font-light() {
+  font-family: 'cromatica-light', sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
