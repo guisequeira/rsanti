@@ -56,22 +56,22 @@ export class HomeComponent implements OnInit {
       service: 'Delivery de Agua',
       image: 'assets/images/bonafont@2x.png'
     },
-    // {
-    //   client: 'C&A Modas',
-    //   service: 'Ecommerce redesign',
-    //   image: 'assets/images/ce-a@2x.png'
-    // },
-    // {
-    //   client: 'Movida',
-    //   service: 'Aluguel de carros',
-    //   image: 'assets/images/movida@2x.png'
-    // }
-    // ,
-    // {
-    //   client: 'Vaimoto',
-    //   service: 'Peça um motoboy',
-    //   image: 'assets/images/vaimoto@2x.png'
-    // }
+    {
+      client: 'C&A Modas',
+      service: 'Ecommerce redesign',
+      image: 'assets/images/ce-a@2x.png'
+    },
+    {
+      client: 'Movida',
+      service: 'Aluguel de carros',
+      image: 'assets/images/movida@2x.png'
+    }
+    ,
+    {
+      client: 'Vaimoto',
+      service: 'Peça um motoboy',
+      image: 'assets/images/vaimoto@2x.png'
+    }
   ];
 
   @Output() position = new EventEmitter();
